@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+  <style> 
+  @media screen and (max-width: 480px){
+    header{
+      font-size: 10px;
+
+    }
+
+    .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+    * {box-sizing: border-box;}
+
+    .col-6 {
+        flex: 0 0 100%; 
+        padding: 10px;
+      }
+
+
+      .col-1 {
+        flex: 0 0 100%; 
+        padding: 10px;
+      }
+
+      .col-2 {
+        flex: 0 0 100%; 
+        padding: 10px;
+      }
+
+      .row::after{
+      content:"";
+      clear:both;
+      
+    }
+
+
+    p {overflow-y: auto;
+      max-height: 150px;
+      font-size: 12px;
+      color: rgb(10, 10, 85);
+      border: solid 4px rgb(166, 3, 3);
+      padding: 15px; }
+
+
+
+      img{
+        width:100%;
+        border: solid 4px rgb(166, 3, 3);
+
+
+
+      }
+
+      
+  
+  }
+
+
+  @media screen and (max-width: 900px){
+
+    p{
+        font-size: 18px;
+        color: rgb(10, 10, 85);
+        border: solid 4px rgb(166, 3, 3);
+        padding: 15px;
+        
+      }
+    .container{
+      display: block;
+      unicode-bidi: isolate;
+      img{
+        width:100%;
+ 
+        border: solid 4px rgb(166, 3, 3);
+      }}
+      * {box-sizing: border-box;}
+
+      .col-6 {
+        flex: 0 0 100%; 
+        padding: 10px;
+      }
+
+      .col-1 {width: 50%;}
+      .col-2 {width: 50%;}
+
+
+      [class*="col-"] {
+
+        float: left;
+        padding: 15px;
+
+
+      }
+
+ 
+
+  }
+
+
+
+
+  @media screen and (min-width: 901px){
+      p{
+        font-size: 18px;
+        color: rgb(10, 10, 85);
+        border: solid 4px rgb(166, 3, 3);
+        padding: 15px;
+        
+      }
+    .container{
+      display: block;
+      unicode-bidi: isolate;
+      img{
+        width:100%;
+ 
+        border: solid 4px rgb(166, 3, 3);
+      }}
+      * {box-sizing: border-box;}
+
+      .col-1 {width: 50%;}
+      .col-2 {width: 50%;}
+
+      .col-6 {width: 50%; }
+
+
+      [class*="col-"] {
+
+        float: left;
+        padding: 15px;
+
+
+      }
+    }
+
+
+
+    .row::after {content:""; clear:both; display:table;}
+    
+
+    
+  
+  
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab03</title>
+
+</head>
+
+
+
+<body style="background-color:rgb(255, 234, 158);">
+
+
+  <header style="
+
+                 color:rgb(255, 200, 1) ;
+                 background-color: rgb(47, 47, 255);
+                 border: solid 5px rgb(166, 3, 3);
+                 padding-bottom: 10px;
+                 padding-top: 10px;
+                 width: 100%;
+                 text-align: center;
+                 ">
+    <h1>Democratic Republic of the Congo </h1>
+  </header>
+
+
+  <div class="container">
+
+
+    <div class="row">
+    <div class="col-6">
+      <img src="img1.jpg" alt="landscape">
+    </div> 
+    <div class="col-6">
+      <p>The Democratic Republic of the Congo (DRC) is a vast country located in Central Africa, known for its rich natural resources and diverse ecosystems. It is the second-largest country in Africa by area and has a population of over 95 million people. The DRC is home to the Congo River, one of the world's longest and most powerful rivers, as well as dense tropical rainforests that support a wealth of wildlife, including endangered species like mountain gorillas. Despite its abundant natural wealth, including minerals such as cobalt and diamonds, the country faces challenges such as political instability, armed conflict, and economic hardship, which impact its development and the well-being of its citizens.</p>
+    </div>
+
+
+    
+  </div>
+
+  <div class="row">
+
+    <div class="col-6">
+
+      <p>  The Democratic Republic of the Congo (DRC) is in Central Africa, bordered by nine countries: the Central African Republic and South Sudan to the north, Uganda, Rwanda, Burundi, and Tanzania to the east, Zambia and Angola to the south, and the Republic of the Congo to the west. It has a small coastline along the Atlantic Ocean, and the Congo River runs through the country, supporting its vast rainforests and serving as a key transportation route.</p>
+
+    
+
+    </div>
+
+
+    <div class="col-6">
+
+      <img src="img3.jpg" alt="map">
+
+    </div>
+
+
+  </div>
+
+
+  <div class="row">
+
+    <div class="col-1">
+
+      <img src="img4.jpg" alt="last1">
+    
+
+    </div>
+
+
+    <div class="col-2">
+
+      <img src="img5.jpg" alt="last2">
+
+    </div>
+
+
+  </div>
+  
+  </div>
+
+
+  
+</body>
+</html>
