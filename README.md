@@ -1,1 +1,1 @@
-# Web-development-s-labs
+# Web-developments-labs
