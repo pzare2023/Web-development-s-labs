@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 05</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  <style>
+        body{
+
+          background-color: rgb(225, 114, 166);
+
+        }
+        .problem1{
+          background-color: rgb(255, 160, 205);
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px;
+          padding: 10px;
+        }
+        button{
+          color: white;
+          background-color:  rgb(255, 125, 186);
+        }
+        .output {
+            font-size: 15px;
+            color: #4CAF50;
+            margin-top: 10px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 160, 205);
+            margin: 10px;
+
+        }
+        .error {
+            font-size: 15px;
+            color: red;
+            margin-top: 10px;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 160, 205);
+            margin: 10px;
+        }
+
+        .problem2{
+          font-size: 20px;
+          margin-top: 10px;
+          color: white;
+          background-color: rgb(255, 160, 205);
+          margin: 10px;
+
+
+        }
+
+        p{
+          color: white;
+          display: flex;
+          align-items: center;
+        }
+
+
+        #myImage {
+            width: 300px;
+            transition: all 0.5s ease; 
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #closeIcon {
+            display: none;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 36px;
+            color: black;
+            z-index: 20;
+            cursor: pointer;
+        }
+
+  </style>
+
+
+</head>
+<body>
+  <div class="problem1">
+  <form id="userForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="address">Address:</label>
+    <input type="text" id="address" name="address"><br><br>
+
+    <label for="phone">Phone :</label>
+    <input type="text" id="phone" name="phone"><br><br>
+
+    <button type="button" onclick="validateAndDisplay()">Submit</button>
+  </form>
+
+</div>
+
+  <div id="output" class="output"></div>
+  <div id="errorMessage" class="error"></div>
+
+  <div class="problem2">
+    <label for="textInput">Enter text:</label>
+    <textarea id="textInput" rows="2" cols="50"></textarea><br><br>
+  
+    <div id="totalCharCount" class="counter">Total Characters: 0</div>
+  
+    <div id="letterCount" class="counter">Letters Only: 0</div>
+  </div>
+
+
+
+
+  <img id="myImage" src="kitty.jpg" alt="Clickable Image">
+
+  <p>click me &#x1F446;&#x1F3FB;	</p>
+
+  <span id="closeIcon" class="material-icons">close</span>
+
+
+
+  <script>
+    function fixNameFormat(name) {
+    const namePattern = /^[a-zA-Z\s]+$/;
+    if (namePattern.test(name)) {
+        return name.trim();
+    } else {
+        document.getElementById("errorMessage").innerHTML = "Name must contain only letters.";
+        return null;
+    }
+    }
+
+    function fixPhoneFormat(phone) {
+    const phonePattern = /^\((\d{3})\)(\d{3})-(\d{4})$/;
+
+    if (phonePattern.test(phone)) {
+
+      return phone.replace(phonePattern, "$1-$2-$3");
+        } else {
+        document.getElementById("errorMessage").innerHTML = "Phone number has invalid format.";
+        return null;
+    }
+    }
+
+    function displayOutput(name, address, phone) {
+        const outputDiv = document.getElementById("output");
+        outputDiv.innerHTML = `
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+        `;
+    }
+
+    function validateAndDisplay() {
+        const name = document.getElementById("name").value;
+        const address = document.getElementById("address").value;
+        const phone = document.getElementById("phone").value;
+
+        document.getElementById("errorMessage").innerHTML = "";
+        document.getElementById("output").innerHTML = "";
+
+        const validName = fixNameFormat(name);
+        const validPhone = fixPhoneFormat(phone);
+
+        if (validName !== null && validPhone !== null) {
+            document.getElementById("name").value = validName;
+            document.getElementById("phone").value = validPhone;
+            displayOutput(validName, address, validPhone);
+        }
+    }
+
+
+
+    function updateTotalCharCount() {
+            const text = document.getElementById("textInput").value;
+            const totalCharCount = text.length;
+            document.getElementById("totalCharCount").innerHTML = `Total Characters: ${totalCharCount}`;
+        }
+
+    function updateLetterCount() {
+            const text = document.getElementById("textInput").value;
+            const lettersOnly = text.match(/[a-zA-Z]/g) || []; 
+            const letterCount = lettersOnly.length;
+            document.getElementById("letterCount").innerHTML = `Letters Only: ${letterCount}`;
+        }
+
+    document.getElementById("textInput").addEventListener("input", function() {
+            updateTotalCharCount();
+            updateLetterCount();
+        });
+
+        const image = document.getElementById("myImage");
+        const closeIcon = document.getElementById("closeIcon");
+
+        // Store the original width and height for reference
+        let originalWidth = image.width;
+        let originalHeight = image.height;
+        let isFullScreen = false;
+
+        function toggleImageSize() {
+            if (!isFullScreen) {
+                image.style.position = "fixed";
+                image.style.top = "50%";
+                image.style.left = "50%";
+                image.style.transform = "translate(-50%, -50%)";
+                image.style.width = "100vw";
+                image.style.height = "100vh";
+                image.style.objectFit = "contain";
+                closeIcon.style.display = "block"; 
+                isFullScreen = true;
+            } else {
+                image.style.position = "static";
+                image.style.width = originalWidth + "px";
+                image.style.height = originalHeight + "px";
+                image.style.transform = "none";
+                closeIcon.style.display = "none"; 
+                isFullScreen = false;
+            }
+        }
+
+        image.addEventListener("click", toggleImageSize);
+        closeIcon.addEventListener("click", toggleImageSize);
+</script>
+
+
+  
+</body>
+</html>
