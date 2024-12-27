@@ -1,0 +1,154 @@
+.navbar {
+  display: flex; 
+  justify-content: center; 
+
+}
+
+.navbar button{
+  margin-right: 10px;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(163, 228, 254);
+  border:2px solid;
+  border-color: brown;
+  font-family: Arial, Helvetica, sans-serif;
+  align-content: center;
+  content: normal;
+  
+}
+
+.navbar button:hover {
+  background-color: rgb(163, 228, 254);
+  color: rgb(85, 199, 241); 
+  opacity: 10%;
+}
+
+.navbar button:active {
+  background-color: rgb(250, 245, 247); 
+  color: white; 
+  text-decoration: none;
+}
+
+
+header h1{
+  font-family:  "Cedarville Cursive", cursive;
+  font-size: 50px;
+  text-align: center;
+  color: brown
+}
+
+body{
+  background-color: rgb(251, 226, 172);
+}
+
+#picture{
+  text-align: right;
+  display: inline-block;
+  margin: 10px;
+  width: 400px;
+  height: 580px;
+  padding: 5px;
+  border: 2px solid;
+  border-color: brown;
+
+}
+
+#picture img{
+  border: 2px solid brown;
+  width: 100%;
+  animation: pulse 5s  ease-in-out; 
+  animation-iteration-count: 2;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+#picture details{
+  color: brown;
+  margin-top: 5px ;
+  font-family: "Cedarville Cursive", cursive;
+  font-weight: bold;
+  float: left;
+}
+
+#picture figcaption p {
+  font-size: 14px;
+  text-align: justify; 
+  margin: 0;
+  font-family: "Cedarville Cursive", cursive;
+}
+
+.aside{
+  height: 590;
+  width: 400px;
+  display: inline-block;
+}
+
+.major{
+  display: inline-block;
+  width: 375px;
+  height: 150px;
+  border: 2px solid brown;
+  margin: 5px;
+  padding: 5px;
+}
+
+.major section{
+  font-family: Arial, Helvetica, sans-serif;
+  color: brown;
+}
+
+
+
+.major h2 {
+  color: brown; 
+  margin-bottom: 10px; 
+}
+
+.major p::selection {background-color: rgb(156, 109, 109);}
+
+.bio{
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  color: brown;
+  width: 375px;
+  height: 410px;
+  border: 2px solid brown;
+  margin: 5px;
+  padding: 5px;
+}
+
+.bio h2{
+
+  color: brown; 
+  margin-bottom: 10px; 
+
+}
+
+.bottom{
+
+  color: brown;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.bottom p.rights:hover{
+  visibility:hidden
+
+}
+
+
+
+
