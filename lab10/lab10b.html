@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Information Form</title>
+
+    <style>
+        body{
+            background-color: lightblue;
+            color: navy;
+            align-items: center;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        h1{
+            border: solid 2px navy;
+            background-color: white;
+            align-items: center;
+            text-align: center;
+            display: inline-block;
+            padding: 40px;
+            border-radius: 20px;
+        }
+        button{
+            background-color: white;
+            color: navy;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>City Information Form</h1>
+    <form action="https://www2.cs.torontomu.ca/~pzare/cgi-bin/lab10r.cgi" method="post" style="margin-bottom: 20px;">
+        <label for="city">City Name:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <label for="province">Province/State:</label>
+        <input type="text" id="province" name="province"><br><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required><br><br>
+
+        <label for="image_url">City Picture URL:</label>
+        <input type="url" id="image_url" name="image_url" required><br><br>
+
+        <input style="background-color: white; color: navy;border-radius: 20px;;" type="submit" value="Submit to Ruby Script">
+    </form>
+
+    <form action="https://www2.cs.torontomu.ca/~pzare/cgi-bin/lab10p.cgi" method="post" id="pythonForm">
+        <input type="hidden" name="city" value="">
+        <input type="hidden" name="province" value="">
+        <input type="hidden" name="country" value="">
+        <input type="hidden" name="image_url" value="">
+
+        <button type="button" onclick="submitPythonForm()">Submit to Python Script</button>
+    </form>
+
+    <script>
+
+        function submitPythonForm() {
+
+            var city = document.getElementById('city').value;
+            var province = document.getElementById('province').value;
+            var country = document.getElementById('country').value;
+            var imageUrl = document.getElementById('image_url').value;
+
+
+            var pythonForm = document.getElementById('pythonForm');
+            pythonForm.elements['city'].value = city;
+            pythonForm.elements['province'].value = province;
+            pythonForm.elements['country'].value = country;
+            pythonForm.elements['image_url'].value = imageUrl;
+
+
+            pythonForm.submit();
+        }
+    </script>
+</body>
+</html>
