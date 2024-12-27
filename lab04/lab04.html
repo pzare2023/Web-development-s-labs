@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab 04</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+  <style>
+    .palindrome {
+      color: green; 
+    }
+    .not-palindrome {
+      color: red; 
+    }
+    .secure {
+            color: green;
+        }
+    .unsecure {
+            color: red;
+        }
+
+  </style>
+</head>
+
+
+<body>
+  <h1>My Favourite Bookmarks</h1>
+
+  <div id="bookmarks-list">
+
+    <script >
+
+      function bookmarks () {
+        
+        
+      const bookmarks =[
+        "https://open.spotify.com/",
+        "https://courses.torontomu.ca/d2l/home",
+        "https://www.youtube.com/",
+        "https://www.netflix.com/ca/",
+        "http://ca.pinterest.com/"
+      ];
+  
+      const container = document.getElementById('bookmarks-list');
+  
+      bookmarks.forEach(function(url){
+        const item = document.createElement('div');
+        let icon ='';
+        if (url.startsWith('https')){
+          icon = '<i class="fas fa-lock secure"></i>';
+        } else{
+          icon = '<i class="fas fa-lock-open unsecure"></i>';
+        }
+  
+        item.innerHTML= `${icon} <a href="${url}" target="_blank">${url}</a>`;
+  
+        container.appendChild(item);
+      });
+    }
+  
+  
+    window.onload = bookmarks;
+  
+  </script>
+
+  </div>
+
+  <div id= "palindrome-checker">
+    
+    <h1> Palindrome Checker</h1>
+
+    <script>  
+    
+      function clearFormat(str){
+        return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+      }
+
+      function palindrome(str){
+        const clearWord= clearFormat(str);
+
+        const reverse = clearWord.split('').reverse().join('');
+
+        return clearWord === reverse;
+      }
+
+      function displayPalindorme(str){
+
+        const resultContainer = document.getElementById('palindrome-checker');
+        const resultItem = document.createElement('div');
+
+
+        if (palindrome(str)){
+           resultItem.innerHTML = `✅ <span class="palindrome">"${str}" is a palindrome.</span>`;
+        }else{
+          resultItem.innerHTML = `❌ <span class="not-palindrome">"${str}" is not a palindrome.</span>`;
+        }
+
+        resultContainer.appendChild(resultItem);
+
+
+      }
+
+
+      const testStrings = [
+        "Drab as a fool, aloof as a bard.",
+        "It ain't over till it's over",
+        "radar",
+        "When you come to a fork in the road, take it",
+        "Marge lets Norah see Sharon’s telegram."
+      ];
+
+
+      testStrings.forEach(str => displayPalindorme(str));
+  </script>
+    
+  </div>
+</body>
+</html>
